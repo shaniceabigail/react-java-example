@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/users/")
 public class UsersController {
 	
 	@Autowired
@@ -33,7 +33,7 @@ public class UsersController {
 	
 	@PostMapping(path = UserLinks.ADD_USER)
 	public ResponseEntity<?> saveUser(@RequestBody Users user) {
-        log.info("UsersController:  list users");
+        log.info("UsersController:  add users");
         Users resource = usersService.saveUser(user);
         return ResponseEntity.ok(resource);
     }
