@@ -1,6 +1,10 @@
-package com.bbtutorials.users.controller;
+package com.demo.books.controller;
 
 import java.util.List;
+
+import com.demo.books.entity.Book;
+import com.demo.books.links.BooksLinks;
+import com.demo.books.service.BooksService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,9 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bbtutorials.users.entity.Users;
-import com.bbtutorials.users.links.UserLinks;
-import com.bbtutorials.users.service.UsersService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,19 +23,19 @@ import lombok.extern.slf4j.Slf4j;
 public class BooksController {
 	
 	@Autowired
-	UsersService usersService;
+	BooksService booksService;
 	
-	@GetMapping(path = UserLinks.LIST_USERS)
-    public ResponseEntity<?> listUsers() {
-        log.info("UsersController:  list users");
-        List<Users> resource = usersService.getUsers();
+	@GetMapping(path = BooksLinks.LIST_BOOKS)
+    public ResponseEntity<?> listBooks() {
+        log.info("BooksController:  list books");
+        List<Book> resource = booksService.getAllBooks();
         return ResponseEntity.ok(resource);
     }
 	
-	@PostMapping(path = UserLinks.ADD_USER)
-	public ResponseEntity<?> saveUser(@RequestBody Users user) {
-        log.info("UsersController:  list users");
-        Users resource = usersService.saveUser(user);
-        return ResponseEntity.ok(resource);
-    }
+	// @PostMapping(path = BooksLinks.ADD_USER)
+	// public ResponseEntity<?> saveUser(@RequestBody Users user) {
+    //     log.info("BooksController:  list users");
+    //     Users resource = usersService.saveUser(user);
+    //     return ResponseEntity.ok(resource);
+    // }
 }
