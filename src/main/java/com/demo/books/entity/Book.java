@@ -6,10 +6,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 
-import lombok.Data;
 
 @Entity
-@Data
 public class Book {
 	
 	@Id

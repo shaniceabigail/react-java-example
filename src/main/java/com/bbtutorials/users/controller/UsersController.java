@@ -26,14 +26,14 @@ public class UsersController {
 	
 	@GetMapping(path = UserLinks.LIST_USERS)
     public ResponseEntity<?> listUsers() {
-        log.info("UsersController:  list users");
+        //log.info("UsersController:  list users");
         List<Users> resource = usersService.getUsers();
         return ResponseEntity.ok(resource);
     }
 	
 	@PostMapping(path = UserLinks.ADD_USER)
 	public ResponseEntity<?> saveUser(@RequestBody Users user) {
-        log.info("UsersController:  add users");
+        //log.info("UsersController:  add users");
         Users resource = usersService.saveUser(user);
         return ResponseEntity.ok(resource);
     }
